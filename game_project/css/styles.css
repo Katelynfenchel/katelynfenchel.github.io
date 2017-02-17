@@ -1,0 +1,35 @@
+h1{
+font-family:  'Shadows Into Light', cursive;
+font-size: 30px;
+text-align: center;
+}
+
+h2{
+font-family:  'Shadows Into Light', cursive;
+font-size: 20px;
+text-align: center;	
+}
+
+div{
+	border: 1px solid black;
+}
+
+.container{
+	width: 1080px;
+	margin: 0 auto;
+}
+
+.card{
+	float: left;
+	margin: 10px;
+	height: 200px;
+	width: 150px;
+	background: #f089cf;
+}
+/*span{
+	text-align: center;
+}*/
+
+/*.front{
+	visibility: hidden;
+}*/
