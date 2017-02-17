@@ -19,12 +19,20 @@ div{
 	margin: 0 auto;
 }
 
-.notMatchCard{
+.card{
 	float: left;
 	margin: 10px;
 	height: 200px;
 	width: 150px;
 	background: #f089cf;
+}
+
+.card p {
+    text-align: center;
+    font-weight: bold;
+    font-family: arial;
+    font-size: 40px;
+    padding-top: 30px;
 }
 /*span{
 	text-align: center;

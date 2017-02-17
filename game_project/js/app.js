@@ -12,14 +12,12 @@
 //function is it the first or second click
 //if it is the first click leave  then tunr the second click
 
-// $(document).ready(function(){
+$( document ).ready(function() {
 //function to allow to do several functions and create a array of numbers for the cards
-	console.log("hi")
-
 	var game = {
-	 cards:[1,1,2,2,3,3,4,4,5,5,6,6],
+	 	cards:[1,1,2,2,3,3,4,4,5,5,6,6],
 		init:function(){
-			shuffle();
+			game.shuffle();
 		},
 		//create a shuffle funtion for array of numbers
 		shuffle: function(){
@@ -28,7 +26,7 @@
 			//create a for loop to go through the array of cards and pick randomly
 			for(i=0; i<this.cards.length; i++){
 				random=Math.floor(Math.random() * i);
-				console.log(random)
+				// console.log(random)
 				// temp var is equal to a array of numbers
 				temp=this.cards[i];
 				//temp will equal another array of numbers at random
@@ -36,13 +34,40 @@
 				//that random array will now equal the temp variable
 				this.cards[random]=temp;
 			}
-			console.log(game.cards)
+			game.assignCard();
+			console.log('shuffle card array:' +game.cards)
 		},
-		//create a click function
-		clickHandlers: function(){
+		 assignCard:function(){
+		 	$('.card').each(function(index){
+		 		$(this).attr('data-card-value', game.cards[index]);
+		 	}),
+		 	game.clickHandlers();
+		 },
+		 clickHandlers: function(){
 
-		},
+		 	$('.card').on('click', function(){
+		 		$(this).html('<p>' + $(this).data('cardValue')+ '</p>').addClass('selected');
+		 		game.checkMatch();
+		 	});
+		 },
+		 checkMatch: function(){
+		 	if($('.selected').length === 2){
+		 		if ($('selected').first().data('.cardValue') === $('.selected').last().data('cardValue')){
+		 			$('.selected').each(function(){
+		 				$(this).animate({opacity: 0});
+		 			})
+			} 
+			else{
+
+			}
+		}
 	}
+}
+	game.init();
 
-// game.init()
-// });
+});
+
+
+
+
+
