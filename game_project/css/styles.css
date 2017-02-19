@@ -10,8 +10,15 @@ font-size: 20px;
 text-align: center;	
 }
 
+h3{
+font-family:  'Shadows Into Light', cursive;
+font-size: 20px;
+text-align: center;	
+
+}
+
 div{
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 }
 
 .container{
@@ -25,12 +32,14 @@ div{
 	height: 200px;
 	width: 150px;
 	background: #f089cf;
+	border: 1px solid black;
+
 }
 
 .card p {
     text-align: center;
     font-weight: bold;
-    font-family: arial;
+    font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
     padding-top: 30px;
 }
