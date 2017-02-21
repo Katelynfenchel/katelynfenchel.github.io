@@ -1,21 +1,10 @@
-//show back of card 
 
-
-
-// $( 'img' ).click(function(){
-// 	console.log('its working')
-// 	//when you click the function make the card flip
-// 	$( this ).prop('src', 'images/backOfCard.png');
-	
-// });
-
-//function is it the first or second click
-//if it is the first click leave  then tunr the second click
-
-$(document).ready (function() {
+$(document).ready(function(){
 //function to allow to do several functions and create a array of numbers for the cards
 	var games = {
-	 	cards:[1,1,2,2,3,3,4,4,5,5,6,6],
+	 	cards:['images/helloKittyBatman.jpg','images/helloKittyBatman.jpg','images/helloKittyExercise.png','images/helloKittyExercise.png',
+	 	'images/helloKittyStrawberry.jpg','images/helloKittyStrawberry.jpg','images/helloKittyNinja.png','images/helloKittyNinja.png','images/helloKittyShop.jpg','images/helloKittyShop.jpg',
+	 	'images/helloKittyZebra.jpg','images/helloKittyZebra.jpg'],
 		init:function(){
 			games.shuffle();
 		},
@@ -23,30 +12,41 @@ $(document).ready (function() {
 		shuffle: function(){
 			var random=0;
 			var temp=0;
-			//create a for loop to go through the array of cards and pick randomly
 			for(i=0; i<this.cards.length; i++){
+				//pick a number randomly from the array
 				random= Math.round(Math.random() * i);
 				// console.log(random)
-				// temp var is equal to a array of numbers
+				// set the temp to the random number, swap the number in the list to shuffle
 				temp= this.cards[i];
-				//temp will equal another array of numbers at random
 				this.cards[i]=this.cards[random];
-				//that random array will now equal the temp variable
 				this.cards[random]=temp;
 			}
 			games.assignCard();
 			console.log('shuffle card array:'+games.cards)
 		},
 		 assignCard:function(){
+		 	// console.log(this, ' in assignCard')
+
+		 	var self = this;
+		 	// $(self).attr("src", '.cards');
+		 	//this will pass the index number 
 		 	$('.card').each(function(index){
+			 	// 	console.log(this, ' in .each function')
+			 	// // create a data value and assign value(number) to the card 
+			 	// 	console.log(self.cards, ' this is self.cards')
+			 	// 	console.log(this.cards, ' this is this.cards')
+
 		 		$(this).attr('data-card-value', games.cards[index]);
+		 		 //$(this).attr( games.cards[index]);
 		 	}),
 		 	games.clickHandlers();
 		 },
 		 clickHandlers: function(){
-
-		 	$('.card').on('click', function(){
-		 		$(this).html('<p>' + $(this).data('cardValue')+ '</p>').addClass('selected');
+			$('.card').on('click', function(){
+				console.log($(this).data('cardValue'));
+		 		// $(this).html('<p>' + $(this).data('cardValue')+ '</p>').addClass('selected');
+		 		//
+		 		$(this).html('<img src="' + $(this).data('cardValue') + '"></img>').addClass('selected');	
 		 		games.checkMatch();
 		 	});
 		 },

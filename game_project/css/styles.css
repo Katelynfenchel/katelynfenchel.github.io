@@ -1,19 +1,26 @@
+body{
+	background-image: url(http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0167/3439/md_multi_color_dots_shop_preview.png);
+}
+
 h1{
 font-family:  'Shadows Into Light', cursive;
-font-size: 30px;
+font-size: 40px;
 text-align: center;
+font-weight: bolder;
+
 }
 
 h2{
 font-family:  'Shadows Into Light', cursive;
-font-size: 20px;
+font-size: 35px;
 text-align: center;	
 }
 
 h3{
 font-family:  'Shadows Into Light', cursive;
-font-size: 20px;
+font-size: 100px;
 text-align: center;	
+text-shadow: 2px 2px;
 
 }
 
@@ -30,9 +37,11 @@ div{
 	float: left;
 	margin: 10px;
 	height: 200px;
-	width: 150px;
-	background: #f089cf;
-	border: 1px solid black;
+	width: 154px;
+	background-image: url(http://www.cartoon-clipart.co/amp/images/hello-kitty4.png);
+	border: 3px solid black;
+	box-shadow: 5px 5px black;
+
 
 }
 
@@ -42,6 +51,13 @@ div{
     font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
     padding-top: 30px;
+}
+
+img{
+	height: 200px;
+	width: 154px;
+
+
 }
 /*span{
 	text-align: center;
