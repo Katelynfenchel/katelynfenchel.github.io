@@ -1,4 +1,6 @@
 
+
+var count = 0;
 $(document).ready(function(){
 //function to allow to do several functions and create a array of numbers for the cards
 	var games = {
@@ -22,7 +24,7 @@ $(document).ready(function(){
 				this.cards[random]=temp;
 			}
 			games.assignCard();
-			console.log('shuffle card array:'+games.cards)
+			// console.log('shuffle card array:'+games.cards)
 		},
 		 assignCard:function(){
 		 	// console.log(this, ' in assignCard')
@@ -41,14 +43,22 @@ $(document).ready(function(){
 		 	}),
 		 	games.clickHandlers();
 		 },
+		 // var count = 0;
 		 clickHandlers: function(){
+		 
 			$('.card').on('click', function(){
 				console.log($(this).data('cardValue'));
 		 		// $(this).html('<p>' + $(this).data('cardValue')+ '</p>').addClass('selected');
 		 		//
 		 		$(this).html('<img src="' + $(this).data('cardValue') + '"></img>').addClass('selected');	
 		 		games.checkMatch();
+		 		count += 1;
+		 		$('#counter').text(count);
+				console.log(count);
 		 	});
+			// // count += 1;
+			// $('#counter').text(count);
+			// console.log(count);
 		 },
 		 checkMatch: function(){
 		 	if($('.selected').length == 2){
@@ -82,7 +92,7 @@ $(document).ready(function(){
 };
 	
 	games.init();
-
+	// var count = 0;
 });
 
 

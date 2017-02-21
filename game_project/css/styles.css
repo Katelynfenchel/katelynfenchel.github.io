@@ -28,6 +28,22 @@ div{
 	/*border: 1px solid black;*/
 }
 
+#boxbuttons{
+	text-align: center;
+	margin: 20px;
+	display: block;
+
+}
+
+#boxbuttons .button {
+	text-transform: uppercase;
+	background: magenta;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
 .container{
 	width: 1080px;
 	margin: 0 auto;
