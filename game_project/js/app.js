@@ -7,12 +7,15 @@ $(document).ready(function(){
 // add an event listener
 // inside of that call your function to start the game
 $('#resetGame').click(function(){
-		games.reset();
+	console.log('reset button')
+	$('.container').empty()
+	for (var i= 0; i < 12; i ++){
+		$('.container').append('<div class="card notmatched"></div>')
+	}
+	games.removeImage()
+	games.init()
 
 })
-
-
-
 
 //function to allow to do several functions and create a array of numbers for the cards
 	var games = {
@@ -49,31 +52,17 @@ $('#resetGame').click(function(){
 		 	// $(self).attr("src", '.cards');
 		 	//this will pass the index number 
 		 	$('.card').each(function(index){
-			 	// 	console.log(this, ' in .each function')
-			 	// // create a data value and assign value(number) to the card 
-			 	// 	console.log(self.cards, ' this is self.cards')
-			 	// 	console.log(this.cards, ' this is this.cards')
-			 	// add the the selected and not matched back to all the cards
-
 			 	$(this).animate({opacity: 100}).addClass('notmatched');
 		 		$(this).attr('data-card-value', self.cards[index]);
-
-		 		// $(this).html(('<img src="' + $(this).data('cardValue') + '"></img>'))
-		 		//http://www.cartoon-clipart.co/amp/images/hello-kitty4.png
-		 		//$(this).data('cardValue')
-		 		 //$(this).attr( games.cards[index]);
 		 	})
 		 
 		 },
 		 
 		 clickHandlers: function(){
 			 var self= this;
-			 //console.log(this, ' this is this')
 			$('.card').on('click', function(){
-				// console.log('click handler is happening')
-				console.log($(this).data('cardValue'));
-				console.log($(this).data('cardValue'));
-		 		$(this).html('<img src="' + $(this).data('cardValue') + '"></img>').addClass('selected');	
+				console.log($(this).attr('data-card-value'), ' this is this.data')
+		 		$(this).html('<img src="' + $(this).attr('data-card-value') + '"></img>').addClass('selected');	
 		 		self.checkMatch();
 		 		this.count += 1;
 		 		$('#counter').text(self.count);
@@ -81,10 +70,8 @@ $('#resetGame').click(function(){
 		 	});
 		 },
 		 checkMatch: function(){
-		 	//console.log('chekc math')
 		 	if($('.selected').length == 2){
-		 		console.log('check match is happen ing')
-		 		if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')){
+		 		if ($('.selected').first().attr('data-card-value') == $('.selected').last().attr('data-card-value')){
 		 			$('.selected').each(function(){
 		 				$(this).animate({opacity: 0}).removeClass('notmatched');
 		 			});
@@ -113,11 +100,16 @@ $('#resetGame').click(function(){
 		}
 	},
 	reset:function (){
-		this.removeImage();
+		console.log('reset is being called')
 		this.shuffle();
+
 		this.assignCard();
-		this.clickHandlers();
-		this.upDateImages();
+		// this.clickHandlers();
+		// // this.upDateImages();
+		// this.removeImage();
+		// this.upDateImages();
+
+
 		
 	},
 
@@ -125,15 +117,9 @@ $('#resetGame').click(function(){
 		$('.card').each(function(index){
 			$(this).empty();
 		})
-	},
-
-	upDateImages: function(){
-		$('img').each(function(index){
-			//grab the parent data card value and set it to the source image
-		})
 	}
-}
 	
+}
 games.init();
 	
 });

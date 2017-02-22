@@ -1,5 +1,7 @@
 body{
 	background-image: url(http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0167/3439/md_multi_color_dots_shop_preview.png);
+	/*background-size: cover;
+}*/
 }
 
 h1{
