@@ -26,10 +26,6 @@ text-shadow: 2px 2px;
 
 }
 
-div{
-	/*border: 1px solid black;*/
-}
-
 #boxbuttons{
 	text-align: center;
 	margin: 20px;
@@ -87,10 +83,3 @@ img{
 
 
 }
-/*span{
-	text-align: center;
-}*/
-
-/*.front{
-	visibility: hidden;
-}*/
