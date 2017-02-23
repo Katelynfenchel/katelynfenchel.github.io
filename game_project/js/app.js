@@ -28,7 +28,8 @@ $('#resetGame').click(function(){
 			this.shuffle();
 			this.assignCard();
 			this.clickHandlers();
-			games.count = 0;
+			// this.playAudio("play");
+			this.count = 0;
 		},
 		//create a shuffle funtion for array of numbers
 		shuffle: function(){
@@ -67,9 +68,9 @@ $('#resetGame').click(function(){
 		 		$(this).html('<img src="' + $(this).attr('data-card-value') + '"></img>').addClass('selected');	
 		 		self.checkMatch();
 
-		 		games.count++;
+		 		self.count++;
 		 		$('#counter').text(self.count);
-		 		console.log(games.count, "is the count");
+		 		console.log(self.count, "is the count");
 		 	});
 		 },
 		 checkMatch: function(){
@@ -99,7 +100,7 @@ $('#resetGame').click(function(){
 	},
 	checkWinner: function(){
 		if($('.notmatched').length === 0){
-			$('.container').html('<h3> You Won, Horray!! </h3>');
+			$('.container').html('<h3> You Won!! </h3>');
 		}
 	},
 	reset:function (){
@@ -113,6 +114,11 @@ $('#resetGame').click(function(){
 			$(this).empty();
 		})
 	}
+
+	
+ 	
+
+	
 	
 }
 games.init();
