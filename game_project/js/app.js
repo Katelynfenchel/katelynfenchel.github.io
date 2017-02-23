@@ -24,7 +24,7 @@ $('#resetGame').click(function(){
 	 	'images/helloKittyStrawberry.jpg','images/helloKittyStrawberry.jpg','images/helloKittyNinja.png','images/helloKittyNinja.png','images/helloKittyShop.jpg','images/helloKittyShop.jpg',
 	 	'images/helloKittyZebra.jpg','images/helloKittyZebra.jpg'],
 		init:function(){
-			
+
 			this.shuffle();
 			this.assignCard();
 			this.clickHandlers();
@@ -78,7 +78,8 @@ $('#resetGame').click(function(){
 		 				$(this).animate({opacity: 0}).removeClass('notmatched');
 		 			});
 		 			$('.selected').each(function(){
-						$(this).removeClass('selected');
+						$(this).removeClass('selected')
+						$('#pop')[0].play();
 
 			});
 		 			
