@@ -12,14 +12,15 @@ $('#resetGame').click(function(){
 	for (var i= 0; i < 12; i ++){
 		$('.container').append('<div class="card notmatched"></div>')
 	}
-	games.removeImage()
-	games.init()
-
+	games.counts = 0;
+	$('#counter').text(0);
+	games.init()	
 })
-
+// var count= 0
+// var count = 0;
 //function to allow to do several functions and create a array of numbers for the cards
 	var games = {
-		count: '',
+		count: 0,
 	 	cards:['images/helloKittyBatman.jpg','images/helloKittyBatman.jpg','images/helloKittyExercise.png','images/helloKittyExercise.png',
 	 	'images/helloKittyStrawberry.jpg','images/helloKittyStrawberry.jpg','images/helloKittyNinja.png','images/helloKittyNinja.png','images/helloKittyShop.jpg','images/helloKittyShop.jpg',
 	 	'images/helloKittyZebra.jpg','images/helloKittyZebra.jpg'],
@@ -27,6 +28,7 @@ $('#resetGame').click(function(){
 			this.shuffle();
 			this.assignCard();
 			this.clickHandlers();
+			games.count = 0;
 		},
 		//create a shuffle funtion for array of numbers
 		shuffle: function(){
@@ -59,14 +61,15 @@ $('#resetGame').click(function(){
 		 },
 		 
 		 clickHandlers: function(){
-			 var self= this;
+			 var self = this;
 			$('.card').on('click', function(){
 				console.log($(this).attr('data-card-value'), ' this is this.data')
 		 		$(this).html('<img src="' + $(this).attr('data-card-value') + '"></img>').addClass('selected');	
 		 		self.checkMatch();
-		 		this.count += 1;
+
+		 		games.count++;
 		 		$('#counter').text(self.count);
-				// console.log(count);
+		 		console.log(games.count, "is the count");
 		 	});
 		 },
 		 checkMatch: function(){
@@ -100,17 +103,9 @@ $('#resetGame').click(function(){
 		}
 	},
 	reset:function (){
-		console.log('reset is being called')
+		// console.log('reset is being called')
 		this.shuffle();
-
 		this.assignCard();
-		// this.clickHandlers();
-		// // this.upDateImages();
-		// this.removeImage();
-		// this.upDateImages();
-
-
-		
 	},
 
 	removeImage: function(){
